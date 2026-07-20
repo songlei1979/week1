@@ -14,6 +14,7 @@
                     console.log(data)
                     $("#temp").text(data.main.temp)
                     $("#cloud").text(data.clouds.all)
+                    $("#desc").text(data.weather[0].description)
                 },
                 error: function (err) {
                     console.log(err)
@@ -28,10 +29,12 @@
     <tr>
         <th>Temperature</th>
         <th>Cloud</th>
+        <th>Description</th>
     </tr>
     <tr>
         <td id="temp"></td>
         <td id="cloud"></td>
+        <td id="desc"></td>
     </tr>
 
 </table>
