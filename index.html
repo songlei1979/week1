@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather</title>
+    <script src="https://code.jquery.com/jquery-4.0.0.js" integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                type: "GET",
+                url: "https://api.openweathermap.org/data/2.5/weather?q=Auckland&appid=cdf05d929ed5cfa526764c43d2b832d2",
+                dataType: "JSON",
+                success: function (data) {
+                    console.log(data)
+                    $("#temp").text(data.main.temp)
+                    $("#cloud").text(data.clouds.all)
+                },
+                error: function (err) {
+                    console.log(err)
+                }
+            });
+        })
+    </script>
+</head>
+<body>
+<h1>Weather</h1>
+<table>
+    <tr>
+        <th>Temperature</th>
+        <th>Cloud</th>
+    </tr>
+    <tr>
+        <td id="temp"></td>
+        <td id="cloud"></td>
+    </tr>
+
+</table>
+</body>
+</html>
